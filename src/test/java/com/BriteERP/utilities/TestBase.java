@@ -81,17 +81,17 @@ public class TestBase {
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws InterruptedException, IOException {
         // if the test failed
-        if (result.getStatus() == ITestResult.FAILURE) {
-            // record the failed test
-            extentLogger.fail(result.getName());
-            // take screen shot and add to report0
-            String screenshotLocation = BrowserUtils.getScreenshot(result.getName());
-            extentLogger.addScreenCaptureFromPath(screenshotLocation);
-            // capture the exception
-            extentLogger.fail(result.getThrowable());
-        } else if (result.getStatus() == ITestResult.SKIP) {
-            extentLogger.skip("Test case skipper: " + result.getName());
-        }
+//        if (result.getStatus() == ITestResult.FAILURE) {
+//            // record the failed test
+//            extentLogger.fail(result.getName());
+//            // take screen shot and add to report0
+//            String screenshotLocation = BrowserUtils.getScreenshot(result.getName());
+//            extentLogger.addScreenCaptureFromPath(screenshotLocation);
+//            // capture the exception
+//            extentLogger.fail(result.getThrowable());
+//        } else if (result.getStatus() == ITestResult.SKIP) {
+//            extentLogger.skip("Test case skipper: " + result.getName());
+//        }
 
         Thread.sleep(4000);
         Driver.closeDriver();

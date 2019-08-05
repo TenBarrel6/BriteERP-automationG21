@@ -1,4 +1,4 @@
-package com.BriteERP.test_cases;
+package com.BriteERP.tests;
 
 import com.BriteERP.pages.CRMpage;
 import com.BriteERP.pages.LoginPage;
