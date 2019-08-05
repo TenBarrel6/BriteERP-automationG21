@@ -42,6 +42,9 @@ public class CRMpage extends TestBase {
 	@FindBy(xpath = "//tbody/tr[1]/td[2]")
 	public WebElement totalExpectedRevenueField;
 
+	@FindBy(xpath = "//button[@accesskey='l']")
+	public WebElement listViewButton;
+
 	public int numberRowsForRevenue(){
 		List<WebElement> tableRows = driver.findElements(By.xpath("//tbody/tr/td[2]"));
 		return tableRows.size();
