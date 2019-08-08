@@ -40,29 +40,25 @@ public class sumOfRavenues extends TestBase {
     crm.tots2.click();
 
     crm.dropOportunities.click();
+    BrowserUtils.waitFor(5);
 
-    List<WebElement> sum = driver.findElements(By.xpath("//tbody/tr/td[2]"));
+    List<WebElement> sum = driver.findElements(By.xpath("//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]"));
     double expectedSum= Double.valueOf(sum.get(0).getText().replace(",",""));
+    System.out.println(expectedSum);
+//    sum.add(driver.findElement(By.xpath("//table[@class='table-hover table-condensed table-bordered']/tbody/tr")));
 
-
+    System.out.println(sum.size());
 
     double actual =0.0;
-
+sum.remove(0);
     for (WebElement each : sum) {
+        System.out.println(each.getText());
         actual+=Double.valueOf(each.getText().replace(",",""));
 
     }
-
-    Assert.assertEquals(expectedSum, actual);
-
-
-
-
-
-
-
-
-
+    //actual-=expectedSum;
+    System.out.println(actual);
+    Assert.assertEquals(actual, expectedSum);
 
 }
 }
