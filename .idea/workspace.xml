@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bed909e9-0344-4ed0-ac7b-9dfa25297f3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/tests/sumOfRavenues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/tests/sumOfRavenues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/tests/ExpectedValueTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/tests/ExpectedValueTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/tests/sumOfRavenues.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/tests/sumOfRavenues.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/tests/ExpectedValueTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+            <state relative-caret-position="330">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/tests/sumOfRavenues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="237">
+              <caret line="51" column="64" selection-end-line="57" />
             </state>
           </provider>
         </entry>
@@ -149,7 +150,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-1440" />
+    <option name="x" value="195" />
+    <option name="y" value="1080" />
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -233,6 +235,17 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="BriteERP" type="462c0819:PsiDirectoryNode" />
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BriteERP-automationG21" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BriteERP-automationG21" type="462c0819:PsiDirectoryNode" />
+              <item name="test-output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BriteERP-automationG21" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BriteERP-automationG21" type="462c0819:PsiDirectoryNode" />
+              <item name="test-output" type="462c0819:PsiDirectoryNode" />
+              <item name="08_08_2019" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -369,19 +382,17 @@
       <option name="project" value="LOCAL" />
       <updated>1565046640745</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="sumOfRavenues">
+      <created>1565280847639</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565280847639</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="sumOfRavenues_sums - 2019.08.08 at 08h 25m 09s.xml">
-      <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="sumOfRavenues_sums - 2019.08.08 at 08h 26m 52s.xml">
-      <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="sumOfRavenues_sums - 2019.08.08 at 08h 27m 44s.xml">
-      <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="sumOfRavenues_sums - 2019.08.08 at 11h 57m 37s.xml">
       <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
     </history-entry>
@@ -403,11 +414,21 @@
     <history-entry file="sumOfRavenues_sums - 2019.08.08 at 12h 11m 06s.xml">
       <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="sumOfRavenues_sums - 2019.08.08 at 17h 48m 59s.xml">
+      <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="sumOfRavenues_sums - 2019.08.08 at 17h 51m 09s.xml">
+      <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="sumOfRavenues_sums - 2019.08.08 at 17h 52m 34s.xml">
+      <configuration name="sumOfRavenues.sums" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1440" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="195" y="1080" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.74698794" visible="true" weight="0.25679544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74698794" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" sideWeight="0.25301206" side_tool="true" visible="true" weight="0.25679544" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -416,14 +437,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32956153" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32891566" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -472,7 +493,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="ListView button added" />
     <MESSAGE value="ExpectedValueTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="ExpectedValueTest" />
+    <MESSAGE value="sumOfRavenues" />
+    <option name="LAST_COMMIT_MESSAGE" value="sumOfRavenues" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/pages/LoginPage.java">
@@ -521,23 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/tests/ExpectedValueTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/ConfigurationReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/TestBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -562,6 +567,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/tests/ExpectedValueTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/ConfigurationReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/configuration.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -571,8 +593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/BriteERP/tests/sumOfRavenues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="237">
+          <caret line="51" column="64" selection-end-line="57" />
         </state>
       </provider>
     </entry>
