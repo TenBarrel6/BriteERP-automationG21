@@ -44,11 +44,11 @@ public class sumOfRavenues extends TestBase {
 
     crm.dropOportunities.click();
     BrowserUtils.waitFor(5);
-extentLogger.info("Verifying the total sum with actual sum of all items");
+    extentLogger.info("Verifying the total sum with actual sum of all items");
     List<WebElement> sum = driver.findElements(By.xpath("//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]"));
     double expectedSum= Double.valueOf(sum.get(0).getText().replace(",",""));
     double actual =0.0;
-sum.remove(0);
+    sum.remove(0);
     for (WebElement each : sum) {actual+=Double.valueOf(each.getText().replace(",","")); }
     Assert.assertEquals(actual, expectedSum);
     extentLogger.pass("PASSED");
