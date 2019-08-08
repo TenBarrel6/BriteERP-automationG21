@@ -2,6 +2,7 @@ package com.BriteERP.tests;
 
 import com.BriteERP.pages.CRMpage;
 import com.BriteERP.pages.LoginPage;
+import com.BriteERP.utilities.BrowserUtils;
 import com.BriteERP.utilities.ConfigurationReader;
 import com.BriteERP.utilities.TestBase;
 import org.openqa.selenium.By;
@@ -29,7 +30,8 @@ public class ExpectedValueTest extends TestBase {
     }
 
     @Test
-    public void expctedValueTest() throws InterruptedException{
+    public void expctedValueTest() {
+        BrowserUtils.waitFor(3);
         extentLogger = report.createTest("Positive login as Driver");
         CRMpage crm = new CRMpage();
         extentLogger.info("Clicking on the CRM Module");
@@ -46,7 +48,7 @@ public class ExpectedValueTest extends TestBase {
         crm.expandTotalButton.click();
         crm.opportunityTotalButton.click();
         extentLogger.info("Taking the actual value of book");
-        List<WebElement> book2 = driver.findElements(By.xpath("//tbody/tr[3]/td"));
+        List<WebElement> book2 = driver.findElements(By.xpath("//tbody/tr[2]/td"));
         Assert.assertEquals(expectedRevenue, book2.get(1).getText());
         extentLogger.pass("PASSED");
     }
