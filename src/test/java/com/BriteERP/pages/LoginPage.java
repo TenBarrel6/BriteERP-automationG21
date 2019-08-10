@@ -29,7 +29,7 @@ public class LoginPage {
         submit.click();
 
         WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
-        wait.until(ExpectedConditions.titleIs("Dashboard"));
+        wait.until(ExpectedConditions.titleIs("#Inbox - Odoo"));
 
     }
 
