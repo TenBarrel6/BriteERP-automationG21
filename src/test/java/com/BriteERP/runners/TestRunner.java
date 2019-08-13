@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/com/BriteERP/features/Login.feature",
+        features = "src/test/resources/com/BriteERP/features/",
         glue = "com/BriteERP/step_definitions"
 )
 public class TestRunner {
