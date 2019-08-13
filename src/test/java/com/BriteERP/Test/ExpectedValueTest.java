@@ -1,8 +1,7 @@
-package com.BriteERP.tests;
+package com.BriteERP.Test;
 
 import com.BriteERP.pages.CRMpage;
 import com.BriteERP.pages.LoginPage;
-import com.BriteERP.utilities.BrowserUtils;
 import com.BriteERP.utilities.ConfigurationReader;
 import com.BriteERP.utilities.TestBase;
 import org.openqa.selenium.By;
@@ -30,26 +29,20 @@ public class ExpectedValueTest extends TestBase {
     }
 
     @Test
-    public void expctedValueTest() {
-        BrowserUtils.waitFor(3);
-        extentLogger = report.createTest("Positive login as Driver");
+    public void expctedValueTest() throws InterruptedException{
         CRMpage crm = new CRMpage();
-        extentLogger.info("Clicking on the CRM Module");
         crm.crmTab.click();
-        extentLogger.info("Clicking on the list view button");
         crm.listViewButton.click();
-        extentLogger.info("Taking the expected value from list");
         List<WebElement> book = driver.findElements(By.xpath("//tbody/tr[3]/td"));
         String expectedRevenue = book.get(8).getText();
-        extentLogger.info("Clicking on the pivot view button");
         crm.pivotSortButton.click();
-        extentLogger.info("Expand total");
         crm.expandTotalButton.click();
+        Thread.sleep(2000);
         crm.expandTotalButton.click();
+        Thread.sleep(2000);
         crm.opportunityTotalButton.click();
-        extentLogger.info("Taking the actual value of book");
-        List<WebElement> book2 = driver.findElements(By.xpath("//tbody/tr[2]/td"));
+        Thread.sleep(3000);
+        List<WebElement> book2 = driver.findElements(By.xpath("//tbody/tr[3]/td"));
         Assert.assertEquals(expectedRevenue, book2.get(1).getText());
-        extentLogger.pass("PASSED");
     }
 }

@@ -23,13 +23,16 @@ public class sumOfRavenues extends TestBase {
 
 @Test
     public void sums(){
-    driver.findElement(By.xpath("//*[@id=\"top_menu\"]/li[10]/a/b")).click();
+    extentLogger = report.createTest("sumOfRevenues");
+    driver.findElement(By.xpath("//*[@id='top_menu']/li[10]/a/b")).click();
     BrowserUtils.waitFor(5);
     LoginPage log = new LoginPage();
+    extentLogger.info("Logging in as event manager");
     String username = ConfigurationReader.get("crm57");
     String password = ConfigurationReader.get("crm57password");
     log.login(username, password);
     BrowserUtils.waitFor(5);
+    extentLogger.info("Navigating to CRM page");
     CRMpage crm = new CRMpage();
     crm.crmTab.click();
     BrowserUtils.waitFor(5);
@@ -41,24 +44,14 @@ public class sumOfRavenues extends TestBase {
 
     crm.dropOportunities.click();
     BrowserUtils.waitFor(5);
-
+    extentLogger.info("Verifying the total sum with actual sum of all items");
     List<WebElement> sum = driver.findElements(By.xpath("//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]"));
     double expectedSum= Double.valueOf(sum.get(0).getText().replace(",",""));
-    System.out.println(expectedSum);
-//    sum.add(driver.findElement(By.xpath("//table[@class='table-hover table-condensed table-bordered']/tbody/tr")));
-
-    System.out.println(sum.size());
-
     double actual =0.0;
-sum.remove(0);
-    for (WebElement each : sum) {
-        System.out.println(each.getText());
-        actual+=Double.valueOf(each.getText().replace(",",""));
-
-    }
-    //actual-=expectedSum;
-    System.out.println(actual);
+    sum.remove(0);
+    for (WebElement each : sum) {actual+=Double.valueOf(each.getText().replace(",","")); }
     Assert.assertEquals(actual, expectedSum);
+    extentLogger.pass("PASSED");
 
 }
 }
