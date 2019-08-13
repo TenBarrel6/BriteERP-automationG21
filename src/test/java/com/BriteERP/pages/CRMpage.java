@@ -44,14 +44,21 @@ public class CRMpage extends TestBase {
 	public WebElement dropOportunities;
 
 
-	@FindBy(xpath = "//a[@href='#' and contains (text (), 'Opportunity')]")
-	public WebElement opportunityTotalButton;
-
 	@FindBy(xpath = "//tbody/tr[1]/td[2]")
 	public WebElement totalExpectedRevenueField;
 
 	@FindBy(xpath = "//button[@accesskey='l']")
 	public WebElement listViewButton;
+
+	public void totalOpportunityChoices(String name){
+		WebElement choice = driver.findElement(By.xpath("//ul[@class='dropdown-menu o_pivot_field_menu']/li/a[contains(text(), '"+name+"')]"));
+		choice.click();
+	}
+
+	public void moduleTabButtonClick(String moduleName){
+		WebElement tab = driver.findElement(By.xpath("//a[@class='oe_menu_toggler']/span[contains (text(), '"+moduleName+"')]"));
+		tab.click();
+	}
 
 	public int numberRowsForRevenue(){
 		List<WebElement> tableRows = driver.findElements(By.xpath("//tbody/tr/td[2]"));
