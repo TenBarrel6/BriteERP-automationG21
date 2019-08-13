@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/com/BriteERP/features/",
-        glue = "com/BriteERP/step_definitions"
+        glue = "com/BriteERP/step_definitions",
+		dryRun = false
 )
 public class TestRunner {
 }
