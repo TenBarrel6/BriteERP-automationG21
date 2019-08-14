@@ -1,16 +1,18 @@
-Feature: I see correct information for each opportunity on the view list page and pivot table
-Background:
-  Given I login as a "crm57"
-  When I click on the "CRM" tab
-  And I click on Pivot board
+Feature: Revenue matches the price of corresponding items and "Total revenue expected" matches sum of all items.
 
-  Scenario: Verify that amount is the same on pivot board and list board
-    And I click on the List board
-    Then "Second opportunity expected revenue value" on the pivot board is the same as the "Expected revenue column value" on the list board
+  Background:
+    Given I login as "crm57"
+    When I click on the crm tab
+    Then Page title should be "Pipeline - Odoo"
+
+  Scenario: Revenue on the list view matches the price of corresponding items on the pivot view
+    When I click on the List board
+    And I click on Pivot board sign
+    Then "Books" price on the Pivot board matches corresponding the price on list board
 
 
-  Scenario: The total revenue should match sum of all items
-    And Click on "Total"
-    And Click on "Total"
-    And Click on "Opportunity"
-    Then Compare total revenue with the sum of all the items
+  Scenario: "Total revenue expected" should match sum of all items
+    When I click on Pivot board sign
+    And I double click on "Total"
+    And I click on "Opportunity" option from dropdown
+    Then "Total revenue expected" matches sum of all revenues

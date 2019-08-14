@@ -33,12 +33,16 @@ public class CRMpage extends TestBase {
 	@FindBy(xpath = "//button[@data-original-title='Pivot']")
 	public WebElement pivotSortButton;
 
-	@FindBy(xpath = "(//table[@class='table-hover table-condensed table-bordered']//td)[1]")
+	@FindBy(xpath = "//td[contains(text(), 'Total')]")
 	public WebElement expandTotalButton;
+
 	@FindBy(xpath = "//td[@class='o_pivot_header_cell_opened']")
 	public WebElement totsExpButton;
+	@FindBy(xpath = "//a[contains(text(), 'Opportunity')]")
+	public WebElement totalOpportunity;
 	@FindBy(xpath = "//td[@class='o_pivot_header_cell_closed']")
 	public WebElement tots2;
+
 
 	@FindBy(xpath = "//li[@data-field='name']")
 	public WebElement dropOportunities;
@@ -49,6 +53,15 @@ public class CRMpage extends TestBase {
 
 	@FindBy(xpath = "//button[@accesskey='l']")
 	public WebElement listViewButton;
+
+	@FindBy(xpath="//tbody/tr/td[2]")
+	public List<WebElement> listItemNames;
+
+	@FindBy(xpath="//tbody/tr/td[9]")
+	public List<WebElement> listItemPrices;
+
+	@FindBy(xpath="//tbody/tr/td[1]")
+	public List<WebElement> pivotItemNames;
 
 	@FindBy(xpath = "//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]")
 	public  List<WebElement> sumRavenues;
