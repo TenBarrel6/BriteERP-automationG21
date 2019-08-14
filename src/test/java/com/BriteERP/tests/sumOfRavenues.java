@@ -24,9 +24,10 @@ public class sumOfRavenues extends TestBase {
 @Test
     public void sums(){
     extentLogger = report.createTest("sumOfRevenues");
-    driver.findElement(By.xpath("//*[@id='top_menu']/li[10]/a/b")).click();
+    //driver.findElement(By.xpath("//*[@id='top_menu']/li[10]/a/b")).click();
     BrowserUtils.waitFor(5);
     LoginPage log = new LoginPage();
+    log.sign_in.click();
     extentLogger.info("Logging in as event manager");
     String username = ConfigurationReader.get("crm57");
     String password = ConfigurationReader.get("crm57password");
@@ -45,11 +46,14 @@ public class sumOfRavenues extends TestBase {
     crm.dropOportunities.click();
     BrowserUtils.waitFor(5);
     extentLogger.info("Verifying the total sum with actual sum of all items");
-    List<WebElement> sum = driver.findElements(By.xpath("//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]"));
-    double expectedSum= Double.valueOf(sum.get(0).getText().replace(",",""));
+
+    double expectedSum= Double.valueOf(crm.sumRavenues.get(0).getText().replace(",",""));
     double actual =0.0;
-    sum.remove(0);
-    for (WebElement each : sum) {actual+=Double.valueOf(each.getText().replace(",","")); }
+    crm.sumRavenues.remove(0);
+
+    for (WebElement each : crm.sumRavenues) {
+        actual+=Double.valueOf(each.getText().replace(",",""));
+        System.out.println(actual);}
     Assert.assertEquals(actual, expectedSum);
     extentLogger.pass("PASSED");
 

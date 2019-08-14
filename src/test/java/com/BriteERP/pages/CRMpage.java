@@ -50,6 +50,9 @@ public class CRMpage extends TestBase {
 	@FindBy(xpath = "//button[@accesskey='l']")
 	public WebElement listViewButton;
 
+	@FindBy(xpath = "//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]")
+	public  List<WebElement> sumRavenues;
+
 	public void totalOpportunityChoices(String name){
 		WebElement choice = driver.findElement(By.xpath("//ul[@class='dropdown-menu o_pivot_field_menu']/li/a[contains(text(), '"+name+"')]"));
 		choice.click();

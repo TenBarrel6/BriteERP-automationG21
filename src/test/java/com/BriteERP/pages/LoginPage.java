@@ -12,6 +12,9 @@ public class LoginPage {
     public LoginPage(){
         PageFactory.initElements(Driver.get(), this);
     }
+    @FindBy(xpath="//*[@id='top_menu']/li[10]/a/b")
+    public WebElement sign_in ;
+    
 
     @FindBy(id="login")
     public WebElement username;
@@ -19,7 +22,7 @@ public class LoginPage {
     @FindBy(id="password")
     public WebElement password;
 
-    @FindBy (xpath = "//*[@id=\"wrapwrap\"]/main/div/form/div[3]/button")
+    @FindBy (xpath = "//*[@id='wrapwrap']/main/div/form/div[3]/button")
     public WebElement submit;
 
 

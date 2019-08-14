@@ -46,7 +46,7 @@ public class ExpectedValueTest extends TestBase {
         extentLogger.info("Expand total");
         crm.expandTotalButton.click();
         crm.expandTotalButton.click();
-        crm.opportunityTotalButton.click();
+       // crm.opportunityTotalButton.click();
         extentLogger.info("Taking the actual value of book");
         List<WebElement> book2 = driver.findElements(By.xpath("//tbody/tr[2]/td"));
         Assert.assertEquals(expectedRevenue, book2.get(1).getText());

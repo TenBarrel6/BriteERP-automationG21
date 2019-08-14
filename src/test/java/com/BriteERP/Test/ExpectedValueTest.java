@@ -40,7 +40,7 @@ public class ExpectedValueTest extends TestBase {
         Thread.sleep(2000);
         crm.expandTotalButton.click();
         Thread.sleep(2000);
-        crm.opportunityTotalButton.click();
+        //crm.opportunityTotalButton.click();
         Thread.sleep(3000);
         List<WebElement> book2 = driver.findElements(By.xpath("//tbody/tr[3]/td"));
         Assert.assertEquals(expectedRevenue, book2.get(1).getText());
