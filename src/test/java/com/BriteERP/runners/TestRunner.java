@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json"},
         features = "src/test/resources/com/BrightERP/features/",
         glue = "com/BriteERP/step_definitions",
-        tags = "@wip",
+        tags = "@CRM",
         dryRun = false
 )
 public class TestRunner {

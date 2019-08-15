@@ -53,7 +53,7 @@ public class CRMpage {
     @FindBy(xpath = "//button[@accesskey='l']")
     public WebElement listViewButton;
 
-    @FindBy(xpath = "//tbody/tr/td[2]")
+    @FindBy(xpath = "//tbody/tr/td[3]")
     public List<WebElement> listItemNames;
 
     @FindBy(xpath = "//tbody/tr/td[9]")
@@ -64,6 +64,9 @@ public class CRMpage {
 
     @FindBy(xpath = "//table[@class='table-hover table-condensed table-bordered']/tbody/tr/td[2]")
     public List<WebElement> sumRavenues;
+
+    @FindBy(xpath = "//a[@href='#' and contains (text (), 'Opportunity')]")
+    public WebElement opportunityTotalButton;
 
     public void totalOpportunityChoices(String name) {
         WebElement choice = Driver.get().findElement(By.xpath("//ul[@class='dropdown-menu o_pivot_field_menu']/li/a[contains(text(), '" + name + "')]"));

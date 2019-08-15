@@ -1,4 +1,4 @@
-#@CRM
+@CRM
 Feature: Revenue matches the price of corresponding items and "Total revenue expected" matches sum of all items.
 
   Background:
@@ -8,12 +8,13 @@ Feature: Revenue matches the price of corresponding items and "Total revenue exp
 #  @wip
   Scenario: Revenue On The List View Matches The Price Of Corresponding Items On The Pivot View
     When I click on the List board
-    And I click on Pivot board sign
-    Then "Books" price on the Pivot board matches corresponding the price on list board
+    And Save "Books" price to expected
+    And I click on Pivot board button
+    Then Check if "Books" price on the Pivot board matches corresponding price on the list board
 
-  @wip
+#  @wip
   Scenario: Total Revenue Expected Should Match Sum Of All Items
-    When I click on Pivot board sign
+    When I click on Pivot board button
     And I double click on "Total"
     And I click on "Opportunity" option from dropdown
-    Then "Total revenue expected" matches sum of all revenues
+    Then Total revenue expected matches sum of all revenues

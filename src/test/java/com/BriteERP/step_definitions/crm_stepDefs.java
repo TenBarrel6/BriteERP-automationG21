@@ -9,11 +9,15 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 
 public class crm_stepDefs {
     CRMpage crm = new CRMpage();
+    String actualS1 = null, expectedS1 = null;
 
 
     @Given("I login as {string}")
@@ -23,7 +27,7 @@ public class crm_stepDefs {
             username = ConfigurationReader.get("crm57");
             password = ConfigurationReader.get("crm57password");
         }
-
+        Driver.get().manage().window().maximize();
         LoginPage login = new LoginPage();
         BrowserUtils.waitFor(1);
         BrowserUtils.highlight(login.username);
@@ -52,8 +56,8 @@ public class crm_stepDefs {
         BrowserUtils.waitFor(seconds);
     }
 
-    @When("I click on Pivot board sign")
-    public void i_click_on_Pivot_board_sign() {
+    @When("I click on Pivot board button")
+    public void i_click_on_Pivot_board_button() {
         BrowserUtils.waitFor(1);
         BrowserUtils.highlight(crm.pivotSortButton);
         crm.pivotSortButton.click();
@@ -74,22 +78,17 @@ public class crm_stepDefs {
         crm.listViewButton.click();
     }
 
-    @Then("{string} price on the Pivot board matches corresponding the price on list board")
-    public void price_on_the_Pivot_board_matches_corresponding_the_price_on_list_board(String value) {
-
-        String actual1 = "";
-        String actual2 = "";
-
-        int index = 0;
-        for (int i = 0; i < crm.listItemNames.size(); i++) {
-            String item = crm.listItemNames.get(i).getText();
-            if (item.equals(value)) {
-                actual1 = crm.listItemPrices.get(i).getText();
+    @When("Save {string} price to expected")
+    public void save_price_to_expected(String productName) {
+        for(int i = 0; i<crm.listItemNames.size(); i++){
+            if(crm.listItemNames.get(i).getText().contains(productName)){
+                expectedS1 = crm.listItemPrices.get(i).getText();
             }
         }
-        BrowserUtils.waitFor(1);
-        BrowserUtils.highlight(crm.pivotSortButton);
-        crm.pivotSortButton.click();
+    }
+
+    @Then("Check if {string} price on the Pivot board matches corresponding price on the list board")
+    public void check_if_price_on_the_Pivot_board_matches_corresponding_price_on_the_list_board(String productName) {
         BrowserUtils.waitFor(1);
         BrowserUtils.highlight(crm.expandTotalButton);
         crm.expandTotalButton.click();
@@ -100,18 +99,13 @@ public class crm_stepDefs {
         BrowserUtils.highlight(crm.totalOpportunity);
         crm.totalOpportunity.click();
 
-
         for (int j = 0; j < crm.sumRavenues.size(); j++) {
             String it = crm.pivotItemNames.get(j).getText();
-            if (it.equals(value)) {
-                actual2 = crm.sumRavenues.get(j).getText();
+            if (it.equals(productName)) {
+                actualS1 = crm.sumRavenues.get(j).getText();
             }
-
-
         }
-        Assert.assertEquals(actual1, actual2);
-
-
+        Assert.assertEquals(expectedS1, actualS1);
     }
 
     //Scenario 2
@@ -134,19 +128,16 @@ public class crm_stepDefs {
         crm.totalOpportunity.click();
     }
 
-    @Then("{string} matches sum of all revenues")
-    public void matches_sum_of_all_revenues(String string) {
+    @Then("Total revenue expected matches sum of all revenues")
+    public void total_revenue_expected_matches_sum_of_all_revenues() {
+        CRMpage crm = new CRMpage();
+        BrowserUtils.waitFor(5);
+        Double expectedSum = Double.parseDouble(crm.sumRavenues.get(0).getText().replace(",", ""));
+        Double actual = 0.0;
         System.out.println(crm.sumRavenues.size());
-        double expectedSum = Double.parseDouble(crm.sumRavenues.get(0).getText().replace(",", ""));
-        double actual = 0.0;
-        crm.sumRavenues.remove(0);
-
-        for (WebElement each : crm.sumRavenues) {
-            actual += Double.parseDouble(each.getText().replace(",", ""));
-//            System.out.println(actual);
+        for (int i = 1; i<crm.sumRavenues.size(); i++) {
+            actual += Double.parseDouble(crm.sumRavenues.get(i).getText().replace(",", ""));
         }
-        System.out.println(actual);
-        System.out.println(expectedSum);
         org.testng.Assert.assertEquals(actual, expectedSum);
     }
 

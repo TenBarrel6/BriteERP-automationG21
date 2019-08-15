@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Login tests">
-    <test name="Login Tests">
-        <classes>
-            <class name="com.BriteERP.tests"/>
-        </classes>
-    </test>
-
-</suite>
