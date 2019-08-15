@@ -27,7 +27,12 @@ import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class BrowserUtils {
-
+    /**
+     * Method sends Email with report which made after test execution
+     * @param recipient
+     * User can add recipient to whom report going to be sent
+     * @param scenario
+     */
     public static void sendEmailReport(String recipient, Scenario scenario){
         ZipUtils.zipSourceFolder();
         // Create the attachment for report file
@@ -36,8 +41,8 @@ public class BrowserUtils {
                 LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy"))+".zip");
         reportFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
         // Create the attachment of screenshot for report file if scenario is failed
-        // check if the scenario is failed
         EmailAttachment imageFileAttachment = new EmailAttachment();
+        // check if the scenario is failed, if true attach image to email
         if (scenario.isFailed()) {
             imageFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\test-output\\Screenshots\\" +
                     scenario.getName().replace(" ","") +
@@ -74,7 +79,7 @@ public class BrowserUtils {
         System.out.println("Report Sent");
     }
 
-    /*
+    /**
      * takes screenshot
      * @param name
      * take a name of a test and returns a path to screenshot takes
@@ -92,7 +97,7 @@ public class BrowserUtils {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
-    /*
+    /**
      * switches to new window by the exact title
      */
     public static void switchToWindow(String targetTitle) {
