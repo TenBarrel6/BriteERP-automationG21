@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = "html:target/default-cucumber-reports",
+        plugin = {"json:target/cucumber.json"},
         features = "src/test/resources/com/BrightERP/features/",
         glue = "com/BriteERP/step_definitions",
+        tags = "@CRM",
         dryRun = false
 )
 public class TestRunner {

@@ -1,6 +1,11 @@
 package com.BriteERP.utilities;
 
+import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.MultiPartEmail;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -11,6 +16,9 @@ import org.testng.Assert;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +28,52 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class BrowserUtils {
 
+    public static void sendEmailReport(String recipient, Scenario scenario){
+        ZipUtils.zipSourceFolder();
+        // Create the attachment for report file
+        EmailAttachment reportFileAttachment = new EmailAttachment();
+        reportFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\CucumberBriteERPG21Report"+
+                LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy"))+".zip");
+        reportFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
+        // Create the attachment of screenshot for report file if scenario is failed
+        // check if the scenario is failed
+        EmailAttachment imageFileAttachment = new EmailAttachment();
+        if (scenario.isFailed()) {
+            imageFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\test-output\\Screenshots\\" +
+                    scenario.getName().replace(" ","") +
+                    new SimpleDateFormat("yyyyMMddhhmm").format(new Date()) + ".png");
+            imageFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
+        }
+
+        try{
+            // Create the email message
+            // set up HOST connection and authenticator
+            MultiPartEmail email = new MultiPartEmail();
+            email.setHostName("smtp.yandex.ru");
+            email.setSmtpPort(465);
+            email.setSSLOnConnect(true);
+            email.setAuthenticator(new DefaultAuthenticator(
+                    ConfigurationReader.get("TestTeamMail"),
+                    ConfigurationReader.get("TestTeamPassword")));
+            email.addTo(recipient);
+            email.setFrom(ConfigurationReader.get("TestTeamMail"), System.getProperty("user.name"));
+            email.setSubject("Test report file: "+scenario.getName());
+            email.setMsg("Here is the Test report file of the test with actual scenario: "+scenario.getName()+
+                    "\nWhich is run/made: "+ LocalDateTime.now());
+            // add the attachment
+            email.attach(reportFileAttachment);
+            if (scenario.isFailed()) {
+                email.attach(imageFileAttachment);
+            }
+            // send the email
+            email.send();
+        }catch(EmailException e){
+            System.out.println("Email report didn't sent");
+            e.printStackTrace();
+        }
+        System.out.println("Report Sent");
+    }
+
     /*
      * takes screenshot
      * @param name
@@ -27,7 +81,7 @@ public class BrowserUtils {
      */
     public static String getScreenshot(String name) throws IOException {
         // name the screenshot with the current date time to avoid duplicate name
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String date = new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
         // TakesScreenshot ---> interface from selenium which takes screenshots
         TakesScreenshot ts = (TakesScreenshot) Driver.get();
         File source = ts.getScreenshotAs(OutputType.FILE);
