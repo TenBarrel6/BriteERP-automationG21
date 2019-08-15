@@ -10,6 +10,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -51,6 +53,7 @@ public class Hooks {
             }
         }
         BrowserUtils.sendEmailReport(ConfigurationReader.get("manager23Email"), scenario);
+        BrowserUtils.cleanDirectory(ConfigurationReader.get("ScreenshotDIR"));
         System.out.println(scenario.getName());
         Driver.closeDriver();
     }

@@ -29,28 +29,28 @@ import static org.testng.AssertJUnit.assertTrue;
 public class BrowserUtils {
     /**
      * Method sends Email with report which made after test execution
-     * @param recipient
-     * User can add recipient to whom report going to be sent
+     *
+     * @param recipient User can add recipient to whom report going to be sent
      * @param scenario
      */
-    public static void sendEmailReport(String recipient, Scenario scenario){
+    public static void sendEmailReport(String recipient, Scenario scenario) {
         ZipUtils.zipSourceFolder();
         // Create the attachment for report file
         EmailAttachment reportFileAttachment = new EmailAttachment();
-        reportFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\CucumberBriteERPG21Report"+
-                LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy"))+".zip");
+        reportFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\CucumberBriteERPG21Report" +
+                LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy")) + ".zip");
         reportFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
         // Create the attachment of screenshot for report file if scenario is failed
         EmailAttachment imageFileAttachment = new EmailAttachment();
         // check if the scenario is failed, if true attach image to email
         if (scenario.isFailed()) {
             imageFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\test-output\\Screenshots\\" +
-                    scenario.getName().replace(" ","") +
+                    scenario.getName().replace(" ", "") +
                     new SimpleDateFormat("yyyyMMddhhmm").format(new Date()) + ".png");
             imageFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
         }
 
-        try{
+        try {
             // Create the email message
             // set up HOST connection and authenticator
             MultiPartEmail email = new MultiPartEmail();
@@ -62,9 +62,10 @@ public class BrowserUtils {
                     ConfigurationReader.get("TestTeamPassword")));
             email.addTo(recipient);
             email.setFrom(ConfigurationReader.get("TestTeamMail"), System.getProperty("user.name"));
-            email.setSubject("Test report file: "+scenario.getName());
-            email.setMsg("Here is the Test report file of the test with actual scenario: "+scenario.getName()+
-                    "\nWhich is run/made: "+ LocalDateTime.now());
+            email.setSubject("Test report file: " + scenario.getName());
+            email.setMsg("Here is the Test report file of the test with actual scenario: " + scenario.getName() +
+                    "\n" + scenario.getSourceTagNames() +
+                    "\nWhich is run/made: " + LocalDateTime.now());
             // add the attachment
             email.attach(reportFileAttachment);
             if (scenario.isFailed()) {
@@ -72,7 +73,7 @@ public class BrowserUtils {
             }
             // send the email
             email.send();
-        }catch(EmailException e){
+        } catch (EmailException e) {
             System.out.println("Email report didn't sent");
             e.printStackTrace();
         }
@@ -81,8 +82,8 @@ public class BrowserUtils {
 
     /**
      * takes screenshot
-     * @param name
-     * take a name of a test and returns a path to screenshot takes
+     *
+     * @param name take a name of a test and returns a path to screenshot takes
      */
     public static String getScreenshot(String name) throws IOException {
         // name the screenshot with the current date time to avoid duplicate name
@@ -97,6 +98,21 @@ public class BrowserUtils {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
+    /**
+     * Method deletes all files in provided directory
+     * @param dirPath
+     * Path to directory which user want to clean
+     */
+    public static void cleanDirectory(String dirPath){
+        try{
+            FileUtils.cleanDirectory(new File(dirPath));
+        }catch (IOException io){
+            System.out.println("Directory clean ERROR");
+            io.printStackTrace();
+        }
+    }
+
     /**
      * switches to new window by the exact title
      */
@@ -110,6 +126,7 @@ public class BrowserUtils {
         }
         Driver.get().switchTo().window(origin);
     }
+
     /**
      * Moves the mouse to given element
      *
@@ -119,6 +136,7 @@ public class BrowserUtils {
         Actions actions = new Actions(Driver.get());
         actions.moveToElement(element).perform();
     }
+
     /**
      * return a list of string from a list of elements
      * text
@@ -135,6 +153,7 @@ public class BrowserUtils {
         }
         return elemTexts;
     }
+
     /**
      * Extracts text from list of elements matching the provided locator into new List<String>
      *
@@ -151,6 +170,7 @@ public class BrowserUtils {
         }
         return elemTexts;
     }
+
     /**
      * Performs a pause
      *
@@ -163,6 +183,7 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
+
     /**
      * Waits for the provided element to be visible on the page
      *
@@ -174,6 +195,7 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.get(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     /**
      * Waits for element matching the locator to be visible on the page
      *
@@ -185,6 +207,7 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.get(), timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     /**
      * Waits for provided element to be clickable
      *
@@ -196,6 +219,7 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.get(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
     /**
      * Waits for element matching the locator to be clickable
      *
@@ -207,6 +231,7 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.get(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
     /**
      * waits for backgrounds processes on the browser to complete
      *
@@ -225,6 +250,7 @@ public class BrowserUtils {
             error.printStackTrace();
         }
     }
+
     /**
      * Verifies whether the element matching the provided locator is displayed on page
      *
@@ -239,6 +265,7 @@ public class BrowserUtils {
             Assert.fail("Element not found: " + by);
         }
     }
+
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
      *
@@ -252,6 +279,7 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
+
     /**
      * Verifies whether the element is displayed on page
      *
@@ -266,6 +294,7 @@ public class BrowserUtils {
             Assert.fail("Element not found: " + element);
         }
     }
+
     /**
      * Waits for element to be not stale
      *
@@ -295,6 +324,7 @@ public class BrowserUtils {
                 }
         }
     }
+
     /**
      * Clicks on an element using JavaScript
      *
@@ -304,6 +334,7 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].click();", element);
     }
+
     /**
      * Scrolls down to an element using JavaScript
      *
@@ -312,6 +343,7 @@ public class BrowserUtils {
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
     /**
      * Performs double click action on an element
      *
@@ -320,6 +352,7 @@ public class BrowserUtils {
     public static void doubleClick(WebElement element) {
         new Actions(Driver.get()).doubleClick(element).build().perform();
     }
+
     /**
      * Changes the HTML attribute of a Web Element to the given value using JavaScript
      *
@@ -330,8 +363,10 @@ public class BrowserUtils {
     public static void setAttribute(WebElement element, String attributeName, String attributeValue) {
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attributeName, attributeValue);
     }
+
     /**
      * Highlighs an element by changing its background and border color
+     *
      * @param element
      */
     public static void highlight(WebElement element) {
@@ -339,6 +374,7 @@ public class BrowserUtils {
         waitFor(1);
         ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].removeAttribute('style', 'background: yellow; border: 2px solid red;');", element);
     }
+
     /**
      * Checks or unchecks given checkbox
      *
@@ -356,6 +392,7 @@ public class BrowserUtils {
             }
         }
     }
+
     /**
      * attempts to click on provided element until given time runs out
      *
@@ -372,6 +409,7 @@ public class BrowserUtils {
             }
         }
     }
+
     /**
      * executes the given JavaScript command on given web element
      *
@@ -381,6 +419,7 @@ public class BrowserUtils {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
         jse.executeScript(command, element);
     }
+
     /**
      * executes the given JavaScript command on given web element
      *
