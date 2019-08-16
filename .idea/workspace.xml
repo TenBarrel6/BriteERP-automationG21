@@ -2,45 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bed909e9-0344-4ed0-ac7b-9dfa25297f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/BriteERP-automationG21.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/Test/ExpectedValueTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/Test/sumOfRavenues.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/pages/CRMpage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/pages/CRMpage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/runners/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/runners/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/step_definitions/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/step_definitions/Hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/step_definitions/crm_stepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/step_definitions/crm_stepDefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/tests/ExpectedValueTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/tests/sumOfRavenues.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/TestBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/BrowserUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/BrowserUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/ZipUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/BriteERP/utilities/ZipUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/com/BrightERP/features/CRMPage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com/BrightERP/features/CRMPage.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/BriteERP-automationG21.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/BriteERPautomation.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BrightERP/features/Login.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/Test/ExpectedValueTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/Test/sumOfRavenues.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/pages/CRMpage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/pages/CRMpage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/pages/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/runners/TestRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/runners/TestRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/tests/ExpectedValueTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/tests/sumOfRavenues.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/BrowserUtils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/BrowserUtils$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/BrowserUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/BrowserUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/ConfigurationReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/ConfigurationReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/TestBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/VerificationUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/BriteERP/utilities/VerificationUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/08_05_2019/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/08_08_2019/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/08_11_2019/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/08_13_2019/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/08_14_2019/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Screenshots/expctedValueTest20190805072235.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Screenshots/expctedValueTest20190805073702.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Screenshots/expctedValueTest20190805073725.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Screenshots/expctedValueTest20190808042834.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Screenshots/expctedValueTest20190808060254.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testngrunner.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -276,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565897887906</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="final framework update">
+      <created>1565910109381</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1565910109381</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -322,7 +299,8 @@
     <MESSAGE value="sumOfRavenues" />
     <MESSAGE value="Email report created&#10;ZipArchive created&#10;Hooks and TestRunner updated" />
     <MESSAGE value="last framework update" />
-    <option name="LAST_COMMIT_MESSAGE" value="last framework update" />
+    <MESSAGE value="final framework update" />
+    <option name="LAST_COMMIT_MESSAGE" value="final framework update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BriteERP_automationG21$Feature__CRMPage.ic" NAME="Feature: CRMPage Coverage Results" MODIFIED="1565787517294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

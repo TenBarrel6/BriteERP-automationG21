@@ -15,8 +15,7 @@ public class ZipUtils {
     private List <String> fileList;
     private static final String OUTPUT_ZIP_FILE = "CucumberBriteERPG21Report"+
             LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy"))+".zip";
-    private static final String SOURCE_FOLDER = "C:\\Users\\rusla\\IdeaProjects\\" +
-            "BriteERP-automationG21\\target\\cucumber-html-reports"; // SourceFolder path
+    private static final String SOURCE_FOLDER = System.getProperty("user.dir")+"\\target\\cucumber-html-reports"; // SourceFolder path
 
     public ZipUtils() {
         fileList = new ArrayList < String > ();

@@ -12,7 +12,7 @@ Feature: Revenue matches the price of corresponding items and "Total revenue exp
     And I click on Pivot board button
     Then Check if "Books" price on the Pivot board matches corresponding price on the list board
 
-#  @wip
+
   Scenario: Total Revenue Expected Should Match Sum Of All Items
     When I click on Pivot board button
     And I double click on "Total"

@@ -95,9 +95,11 @@ public class crm_stepDefs {
         BrowserUtils.waitFor(1);
         BrowserUtils.highlight(crm.expandTotalButton);
         crm.expandTotalButton.click();
+        BrowserUtils.scrollToElement(crm.totalOpportunity);
         BrowserUtils.waitFor(1);
         BrowserUtils.highlight(crm.totalOpportunity);
         crm.totalOpportunity.click();
+        BrowserUtils.waitFor(5);
 
         for (int j = 0; j < crm.sumRavenues.size(); j++) {
             String it = crm.pivotItemNames.get(j).getText();

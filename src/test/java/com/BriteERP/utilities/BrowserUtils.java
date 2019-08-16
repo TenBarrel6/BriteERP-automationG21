@@ -37,14 +37,14 @@ public class BrowserUtils {
         ZipUtils.zipSourceFolder();
         // Create the attachment for report file
         EmailAttachment reportFileAttachment = new EmailAttachment();
-        reportFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\CucumberBriteERPG21Report" +
+        reportFileAttachment.setPath(System.getProperty("user.dir")+"\\CucumberBriteERPG21Report" +
                 LocalDate.now().format(DateTimeFormatter.ofPattern("MM_dd_yyyy")) + ".zip");
         reportFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
         // Create the attachment of screenshot for report file if scenario is failed
         EmailAttachment imageFileAttachment = new EmailAttachment();
         // check if the scenario is failed, if true attach image to email
         if (scenario.isFailed()) {
-            imageFileAttachment.setPath("C:\\Users\\rusla\\IdeaProjects\\BriteERP-automationG21\\test-output\\Screenshots\\" +
+            imageFileAttachment.setPath(System.getProperty("user.dir")+"\\test-output\\Screenshots\\" +
                     scenario.getName().replace(" ", "") +
                     new SimpleDateFormat("yyyyMMddhhmm").format(new Date()) + ".png");
             imageFileAttachment.setDisposition(EmailAttachment.ATTACHMENT);
@@ -63,8 +63,8 @@ public class BrowserUtils {
             email.addTo(recipient);
             email.setFrom(ConfigurationReader.get("TestTeamMail"), System.getProperty("user.name"));
             email.setSubject("Test report file: " + scenario.getName());
-            email.setMsg("Here is the Test report file of the test with actual scenario: " + scenario.getName() +
-                    "\n" + scenario.getSourceTagNames() +
+            email.setMsg("Here is the Test report file of actual scenario: " + scenario.getName() +
+                    "\nTags run:" + scenario.getSourceTagNames() +
                     "\nWhich is run/made: " + LocalDateTime.now());
             // add the attachment
             email.attach(reportFileAttachment);

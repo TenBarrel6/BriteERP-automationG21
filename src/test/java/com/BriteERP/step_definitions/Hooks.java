@@ -53,7 +53,7 @@ public class Hooks {
             }
         }
         BrowserUtils.sendEmailReport(ConfigurationReader.get("manager23Email"), scenario);
-        BrowserUtils.cleanDirectory(ConfigurationReader.get("ScreenshotDIR"));
+        BrowserUtils.cleanDirectory(System.getProperty("user.dir")+"\\test-output\\Screenshots");
         System.out.println(scenario.getName());
         Driver.closeDriver();
     }
